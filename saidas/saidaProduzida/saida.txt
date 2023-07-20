@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "C:\Repositorio\Compiladores\compiladores-t5\trabalho5.py", line 106, in main
+    listener.visitPrograma(arvore)
+  File "C:\Repositorio\Compiladores\compiladores-t5\LASemantico.py", line 14, in visitPrograma
+    return super().visitPrograma(ctx)
+  File "C:\Repositorio\Compiladores\compiladores-t5\LAVisitor.py", line 14, in visitPrograma
+    return self.visitChildren(ctx)
+  File "C:\Users\iteix\AppData\Local\Programs\Python\Python310\lib\site-packages\antlr4\tree\Tree.py", line 44, in visitChildren
+    childResult = c.accept(self)
+  File "C:\Repositorio\Compiladores\compiladores-t5\LAParser.py", line 1742, in accept
+    return visitor.visitCorpo(self)
+  File "C:\Repositorio\Compiladores\compiladores-t5\LAVisitor.py", line 109, in visitCorpo
+    return self.visitChildren(ctx)
+  File "C:\Users\iteix\AppData\Local\Programs\Python\Python310\lib\site-packages\antlr4\tree\Tree.py", line 44, in visitChildren
+    childResult = c.accept(self)
+  File "C:\Repositorio\Compiladores\compiladores-t5\LAParser.py", line 626, in accept
+    return visitor.visitDeclaracao_local(self)
+  File "C:\Repositorio\Compiladores\compiladores-t5\LAVisitor.py", line 29, in visitDeclaracao_local
+    return self.visitChildren(ctx)
+  File "C:\Users\iteix\AppData\Local\Programs\Python\Python310\lib\site-packages\antlr4\tree\Tree.py", line 44, in visitChildren
+    childResult = c.accept(self)
+  File "C:\Repositorio\Compiladores\compiladores-t5\LAParser.py", line 692, in accept
+    return visitor.visitDeclaracao_variavel(self)
+  File "C:\Repositorio\Compiladores\compiladores-t5\LASemantico.py", line 106, in visitDeclaracao_variavel
+    registros = tabela.verificarTipo(identTipo.getText())
+  File "C:\Repositorio\Compiladores\compiladores-t5\TabelaDeSimbolos.py", line 65, in verificarTipo
+    return self.tabelaTipo[nome]
+KeyError: 'int'
+

@@ -2,9 +2,13 @@ from TabelaDeSimbolos import TabelaDeSimbolos
 
 class Escopo:
 
-    def __init__(self, tipo: TabelaDeSimbolos.TipoLA):
+    def __init__(self, tipo: TabelaDeSimbolos.TipoLA=None, listaDeTabelas=None):
         self.pilhaDeTabelas = []
-        self.criarNovoEscopo(tipo)
+
+        if listaDeTabelas is None:
+            self.criarNovoEscopo(tipo)
+        else:
+            self.pilhaDeTabelas.append(listaDeTabelas)
 
     def criarNovoEscopo(self, tipo: TabelaDeSimbolos.TipoLA):
         self.pilhaDeTabelas.append(TabelaDeSimbolos(tipo))

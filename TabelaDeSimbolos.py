@@ -56,7 +56,10 @@ class TabelaDeSimbolos:
         return nome in self.tabelaDeSimbolos
 
     def verificar(self, nome: str):
-        return self.tabelaDeSimbolos[nome].tipo
+        if self.existe(nome):
+            return self.tabelaDeSimbolos[nome].tipo
+        
+        return None
     
     def verificarTipo(self, nome: str):
-        return self.tabelaTipo[nome] #if nome in self.tabelaTipo else None
+        return self.tabelaTipo[nome]

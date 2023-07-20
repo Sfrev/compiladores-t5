@@ -112,6 +112,7 @@ class LASemanticoUtils:
             ret = LASemanticoUtils.verificarTipoParcela_nao_unario(escopos, ctx.parcela_nao_unario())
         else:
             ret = LASemanticoUtils.verificarTipoParcela_unario(escopos, ctx.parcela_unario())
+        
         return ret
 
     @staticmethod
@@ -184,14 +185,27 @@ class LASemanticoUtils:
         return tipo
     
     @staticmethod
-    def getTipoC(valor: str) -> TabelaDeSimbolos.TipoC:
+    def getTipoC(valor: str) -> str:
         tipo = None
+        
         if valor == 'literal':
-            tipo = TabelaDeSimbolos.TipoC.CHAR
+            tipo = 'char'
         elif valor == 'inteiro':
-            tipo = TabelaDeSimbolos.TipoC.INT
+            tipo = 'int'
         elif valor == 'real':
-            tipo = TabelaDeSimbolos.TipoC.FLOAT
-        elif valor == 'void':
-            tipo = TabelaDeSimbolos.TipoC.VOID
+            tipo = 'float'
+
+        return tipo
+    
+    @staticmethod
+    def getPorcentoCSimbolo(valor: TabelaDeSimbolos.TipoLA) -> str:
+        tipo = None
+        
+        if valor == TabelaDeSimbolos.TipoLA.LITERAL:
+            tipo = 's'
+        elif valor == TabelaDeSimbolos.TipoLA.INTEIRO:
+            tipo = 'd'
+        elif valor == TabelaDeSimbolos.TipoLA.REAL:
+            tipo = 'f'
+        
         return tipo

@@ -8,7 +8,7 @@ from typing import List
 
 class LASemantico(LAVisitor):
     def __init__(self):
-        self.escopos = Escopo(TabelaDeSimbolos.TipoLA.VOID)
+        self.escopos = Escopo(tipo=TabelaDeSimbolos.TipoLA.VOID)
 
     def visitPrograma(self, ctx: LAParser.ProgramaContext):
         return super().visitPrograma(ctx)

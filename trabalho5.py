@@ -110,7 +110,9 @@ def main(argv):
 
         if len(LASemanticoUtils.errosSemanticos) == 0:
             codigoC = GeradorCodigoC()
-            saida.append(codigoC.codigo)
+            codigoC.visitPrograma(arvore)
+            for codigo in codigoC.codigo:
+                saida.append(codigo)
 
     except Exception as e:
         saida.append(traceback.format_exc())
