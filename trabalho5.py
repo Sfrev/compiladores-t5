@@ -1,6 +1,6 @@
 # UFSCar - Departamento de Computação
 # Construção de compiladores
-# Analisador Semântico para a linguagem LA
+# Gerador de Código C para a linguagem LA
 
 # Autor: Igor Teixeira Machado RA: 769708
 # Autor: Júlia Aparecida de Sousa RA: 769707
@@ -101,13 +101,16 @@ def main(argv):
         lexer.addErrorListener(LALexerErrorListener())
         parser.addErrorListener(LAParserErrorListener())
 
+        # Executando o analisador semântico
         arvore = parser.programa()
         listener = LASemantico()
         listener.visitPrograma(arvore)
 
+        # Se existirem erros, eles são mostrados na saída
         for error in LASemanticoUtils.errosSemanticos:
             saida.append(error)
 
+        # Se não houverem erros, o código C é gerado
         if len(LASemanticoUtils.errosSemanticos) == 0:
             codigoC = GeradorCodigoC()
             codigoC.visitPrograma(arvore)
